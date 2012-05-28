@@ -24,6 +24,11 @@
             <url>http://slick.cokeandcode.com/mavenrepo</url>
         </repository>
         <repository>
+            <id>mavenNatives</id>
+            <name>Maven Natives Repository</name>
+            <url>http://mavennatives.googlecode.com/svn/repo</url>
+        </repository>
+        <repository>
             <id>nolat.org</id>
             <name>Nolat</name>
             <url>https://raw.github.com/Talon876/repo/master/releases</url>
