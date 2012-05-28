@@ -19,14 +19,14 @@
 
     <repositories>
         <repository>
-            <id>nolat.org</id>
-            <name>Nolat</name>
-            <url>https://raw.github.com/Talon876/repo/master/releases</url>
-        </repository>
-        <repository>
             <id>slick</id>
             <name>slick</name>
             <url>http://slick.cokeandcode.com/mavenrepo</url>
+        </repository>
+        <repository>
+            <id>nolat.org</id>
+            <name>Nolat</name>
+            <url>https://raw.github.com/Talon876/repo/master/releases</url>
         </repository>
     </repositories>
 

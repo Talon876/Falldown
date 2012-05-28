@@ -12,8 +12,8 @@ public class App {
         log.info("Set org.lwjgl.librarypath to " + System.getProperty("user.dir") + "/natives/");
         System.setProperty("org.lwjgl.librarypath", System.getProperty("user.dir") + "/natives/");
         try {
-            AppGameContainer app = new AppGameContainer(new Falldown(Config.TITLE));
-            app.setDisplayMode(Config.RESOLUTION.getX(), Config.RESOLUTION.getY(), Config.FULLSCREEN);
+            AppGameContainer app = new AppGameContainer(new Falldown(Config.Title));
+            app.setDisplayMode(Config.Resolution.getX(), Config.Resolution.getY(), Config.Fullscreen);
             app.start();
         } catch (SlickException e) {
             log.error(e);
