@@ -3,7 +3,6 @@ package org.nolat.falldown;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -16,8 +15,6 @@ public class Platform {
     public Color colorA = Color.white;
     public Color colorB = Color.white;
     public Color color = Color.white;
-
-    private static final Logger log = Logger.getLogger(Platform.class);
 
     public Platform() {
         setupWalls();
