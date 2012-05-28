@@ -32,7 +32,8 @@ public class Falldown extends BasicGame {
 
         };
         newPlatformTimer.schedule(newPlatformTask, Config.WallSpawn, Config.WallSpawn);
-
+        // container.setTargetFrameRate(120);
+        container.setVSync(true);
     }
 
     @Override
