@@ -22,6 +22,9 @@
             <id>slick</id>
             <name>slick</name>
             <url>http://slick.cokeandcode.com/mavenrepo</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
         <repository>
             <id>mavenNatives</id>
@@ -35,6 +38,9 @@
             <id>nolat.org</id>
             <name>Nolat</name>
             <url>https://raw.github.com/Talon876/repo/master/releases</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
