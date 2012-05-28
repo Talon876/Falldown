@@ -27,6 +27,9 @@
             <id>mavenNatives</id>
             <name>Maven Natives Repository</name>
             <url>http://mavennatives.googlecode.com/svn/repo</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
         <repository>
             <id>nolat.org</id>
