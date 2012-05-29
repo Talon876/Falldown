@@ -108,6 +108,8 @@
                 <version>1.6</version>
                 <configuration>
                     <createDependencyReducedPom>false</createDependencyReducedPom>
+                    <shadedArtifactAttached>true</shadedArtifactAttached> <!-- Make the shaded artifact not the main one -->
+                    <shadedClassifierName>full</shadedClassifierName> <!-- set the suffix to the shaded jar -->
                 </configuration>
                 <executions>
                     <execution>
@@ -135,11 +137,40 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.bluestemsoftware.open.maven.plugin</groupId>
+                <artifactId>launch4j-plugin</artifactId>
+                <version>1.5.0.0</version>
+                <executions>
+
+                    <!-- GUI exe -->
+                    <execution>
+                        <id>l4j-gui</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>launch4j</goal>
+                        </goals>
+                        <configuration>
+                            <headerType>gui</headerType>
+                            <outfile>target/${artifactId}-${version}.exe</outfile>
+                            <jar>target/${artifactId}-${version}-full.jar</jar> <!-- 'shaded' is the value set on shadedClassifierName above -->
+                            <errTitle>${artifactId} - Error</errTitle>
+                            <classPath>
+                                <mainClass>${main}</mainClass>
+                            </classPath>
+                            <icon>src/main/resources/icons/nolat64.ico</icon>
+                            <jre>
+                                <minVersion>1.7.0</minVersion>
+                            </jre>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>2.3</version>
                 <executions>
-
                     <execution>
                         <id>dist</id>
                         <phase>package</phase>
