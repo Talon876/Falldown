@@ -19,7 +19,7 @@ public class Config {
     public static float PlayerSpeed = 2.55f;
     public static float WallSpeed = 1.15f;
     public static float Gravity = 1.75f;
-    public static int WallSpawn = 1000; // ms
+    public static int WallSpawn = 800; // ms
 
     public static Image WallTexture;
     public static Image Background;

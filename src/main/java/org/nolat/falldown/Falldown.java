@@ -20,6 +20,7 @@ public class Falldown extends BasicGame {
     @Override
     public void init(GameContainer container) throws SlickException {
         Config.init();
+        container.setShowFPS(false);
         player = new Player();
         PlatformManager.spawnPlatform(600);
         newPlatformTimer = new Timer("NewPlatformSpawner");
@@ -27,12 +28,13 @@ public class Falldown extends BasicGame {
 
             @Override
             public void run() {
-                PlatformManager.spawnPlatform(620);
+                PlatformManager.spawnPlatform(Config.Resolution.getY() + 20);
+                player.setScore(player.getScore() + Config.Difficulty);
+
             }
 
         };
         newPlatformTimer.schedule(newPlatformTask, Config.WallSpawn, Config.WallSpawn);
-        // container.setTargetFrameRate(120);
         container.setVSync(true);
     }
 
@@ -44,9 +46,8 @@ public class Falldown extends BasicGame {
 
     @Override
     public void render(GameContainer gc, Graphics g) throws SlickException {
-        Config.Background.draw(0, 0);
+        Config.Background.draw(0, 0, Config.Resolution.getX(), Config.Resolution.getY());
         PlatformManager.render(gc, g);
         player.render(g);
     }
-
 }
