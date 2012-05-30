@@ -57,6 +57,11 @@
             <version>1.2.16</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+        <dependency>
             <groupId>org.nolat</groupId>
             <artifactId>toolkit</artifactId>
             <version>1.0</version>
@@ -71,6 +76,12 @@
             <artifactId>slick</artifactId>
             <version>274</version>
         </dependency>
+        <dependency>
+            <groupId>com.melloware</groupId>
+            <artifactId>jintellitype</artifactId>
+            <version>1.3.7</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -102,6 +113,7 @@
                     <mainClass>${main}</mainClass>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -130,6 +142,7 @@
                                         <exclude>*.dll</exclude>
                                         <exclude>*.so</exclude>
                                         <exclude>*.jnilib</exclude>
+                                        <exclude>*.dylib</exclude>
                                     </excludes>
                                 </filter>
                             </filters>
@@ -137,14 +150,11 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.bluestemsoftware.open.maven.plugin</groupId>
                 <artifactId>launch4j-plugin</artifactId>
                 <version>1.5.0.0</version>
                 <executions>
-
-                    <!-- GUI exe -->
                     <execution>
                         <id>l4j-gui</id>
                         <phase>package</phase>
@@ -153,9 +163,9 @@
                         </goals>
                         <configuration>
                             <headerType>gui</headerType>
-                            <outfile>target/${artifactId}-${version}.exe</outfile>
-                            <jar>target/${artifactId}-${version}-full.jar</jar> <!-- 'shaded' is the value set on shadedClassifierName above -->
-                            <errTitle>${artifactId} - Error</errTitle>
+                            <outfile>target/${project.artifactId}-${project.version}.exe</outfile>
+                            <jar>target/${project.artifactId}-${project.version}-full.jar</jar> <!-- 'full' is the value set on shadedClassifierName above -->
+                            <errTitle>${project.artifactId} - Error</errTitle>
                             <classPath>
                                 <mainClass>${main}</mainClass>
                             </classPath>
@@ -163,24 +173,6 @@
                             <jre>
                                 <minVersion>1.7.0</minVersion>
                             </jre>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.3</version>
-                <executions>
-                    <execution>
-                        <id>dist</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <descriptors>
-                                <descriptor>src/META-INF/dist.xml</descriptor>
-                            </descriptors>
                         </configuration>
                     </execution>
                 </executions>
