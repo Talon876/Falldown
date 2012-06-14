@@ -10,3 +10,8 @@ Screenshots
 -----------
 
 ![Screenshot](http://i.imgur.com/wSQoF.png)
+
+
+Note
+----
+I mainly wrote this to test automated Maven building when native files are involved. It's not a very good example of Slick2d, though it does work I suppose.
